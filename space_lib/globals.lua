@@ -49,18 +49,18 @@ speed_unit = {
 }
 
 open_tooltip_tbl = {
-    "man it doesn't matter she 15 my nigga i like young girls i like em 14, 15, 16...", -- 1 -- i think
+    "if you spill cleaning products did you make a mess?", -- 1 -- i think
     "what do you mean this toilet is for display only",
-    "prizuhm is mad someone that acts as retarded as i do is smarter then him",
-    "that ban didnt do much my negro",
+    "what has blue hair and... wait nvm",
+    "i have started chud maxing",
     "space on top",
-    "would you rather watch a tree grow or a knee grow?",
-    "horse fucker or some shit, i would not know i use proton mail",
-    "man will i ever get a break from the mutes?",
-    "look i hate rape as much as the next person but..." -- 9 -- if the top is not 1 change this shit. edit top is one
+    "this, is elon musk",
+    "what ever ill let something flow through yo ass. dawg i ant so sure that joke works",
+    "I'll have you know I graduated top of my class in the Navy Seals",
+    "bottom g or what ever hes called idk i dont use twitter" -- 9 edit top is one
 }
 
-key_option_output = {-- idk why im making this a global im bored 
+key_option_output = {
     save_hotkey_output = "",
     save_hotkey_input_bool = false,
 
@@ -166,7 +166,7 @@ submenus = {
     theme_saving_menu = "theme_saving_menu"
 
 }
--- im not even going to begin to try to fix this or clean it up its working thats all i care about. if the fucking time shit was working i would not have even done all this shit wonder why shits not working
+-- im not even going to begin to try to fix this or clean it up its working thats all i care about.
 menu_nav_ticks = {}
 menu_nav_ticks2 = {}
 menu_nav_ticks3 = {}
@@ -236,7 +236,7 @@ _menu.banner_path = ""
 
 _menu.settings_file = "defualt\\settings_default.lua"
 
-_menu.hot_key_file = "defualt\\hotkey_default.lua"--"hotkey_default.lua" -- due to me probably abandoning this lua soon as no one at cherax seems to like me and not having proper json shit in lua im taking the ez route and just making multiple files
+_menu.hot_key_file = "defualt\\hotkey_default.lua"--"hotkey_default.lua"
 
 _menu.theme_file = "defualt\\theme_defualt.lua"
 
@@ -399,7 +399,7 @@ _menu.loading_sprite_rot = 0.0
 
 _network.selected_player = 0
 
-_g.smooth_scroll_speed = 0.0001 -- never actually finished this. edit kys and fix it then
+_g.smooth_scroll_speed = 0.0001
 
 _settings.menu_pos_x = 0.5
 
