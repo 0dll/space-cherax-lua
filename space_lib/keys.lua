@@ -446,6 +446,4 @@ input_disabled_control = {
     INPUT_REPLAY_START_STOP_RECORDING = 288,
     INPUT_REPLAY_START_STOP_RECORDING_SECONDARY = 289,
     INPUT_SCALED_LOOK_LR = 290
-} -- ant even all of them please kill me.
-
--- im retarded as fuck i could have done this with python.
+}
