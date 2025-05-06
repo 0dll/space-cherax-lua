@@ -132,7 +132,6 @@ end
 ]]
 
 
--- hotkeys are fucked when it comes to savinf to a file but lua does not really have a good json lib so fuck it its not like C++ json libs 
 function g_save_hotkeys(filename)
 
     local file_1 = io.open(filename, "w")
@@ -199,7 +198,6 @@ function g_save_theme(filename)
 
         
         file_1:write(json_encode(theme_data))
-        --file_1:write("nigger")
         file_1:close()
     else
         notify_func("error: unable to open file for writing")
