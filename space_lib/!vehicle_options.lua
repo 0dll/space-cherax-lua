@@ -164,7 +164,7 @@ end
 
 function _vehicle_options_()
 
-    _select_paint_to_load_for_paint_loader_() -- has a var and since it being local would be this entire function im not harming my self over it in the future 
+    _select_paint_to_load_for_paint_loader_()
     _paint_editor_and_saver_()
     _hot_key_tbl.rainbow_paint, _settings.rainbow_paint_value = add_toggle_editor_option("Rainbow Paint", " ", submenus.vehicle_rgb_menu, _hot_key_tbl.rainbow_paint, true, _settings.rainbow_paint, _settings.rainbow_paint_value, 0.1, 5.0, 0.1, function() to_enable.rainbow_paint(true) end)
 
@@ -174,7 +174,7 @@ function _vehicle_options_()
     add_submenu_option("Load Paint File", " ", submenus.paint_editor_menu, submenus.select_paint_to_load_menu)
 
 
-    add_submenu_option("Rainbow Options", "Its Not Fucking Gay Kill Yourself", submenus.vehicle_main_menu, submenus.vehicle_rgb_menu)
+    add_submenu_option("Rainbow Options", "", submenus.vehicle_main_menu, submenus.vehicle_rgb_menu)
 
     _hot_key_tbl.vehicle_projectile_rapid_fire, _settings.vehicle_projectile_rapid_fire_speed = add_toggle_editor_option("Projectile Rapid Fire", "Smaller The Number The Faster It Shoots", submenus.vehicle_main_menu, _hot_key_tbl.vehicle_projectile_rapid_fire, true, _settings.vehicle_projectile_rapid_fire, _settings.vehicle_projectile_rapid_fire_speed, 0, 500, 10, function() to_enable.vehicle_projectile_rapid_fire_func(true) end)
     _hot_key_tbl.vehicle_fly_hotkey, _settings.vehicle_fly_value = add_toggle_editor_option("Vehicle Fly", "Its Just Like What Impulse And Luna Had", submenus.vehicle_main_menu, _hot_key_tbl.vehicle_fly_hotkey, true, _settings.vehicle_fly_bool, _settings.vehicle_fly_value, 1, 300, 1, function() to_enable.vehicle_fly(true) end)
