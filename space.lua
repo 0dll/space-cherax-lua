@@ -12,23 +12,15 @@
     └──────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 ]]
---[[ SHOULD MAKE IT INTERACTION MENU CONTROLABLE 
-if not DECORATOR.DECOR_EXIST_ON(veh, "Player_Vehicle") then
-    DECORATOR.DECOR_SET_INT(veh, "Player_Vehicle", NETWORK.NETWORK_HASH_FROM_PLAYER_HANDLE(PLAYER.PLAYER_ID()))
-end
-]]
+
 
 --SCRIPT_GFX_VISIBLE_WHEN_PAUSED
-dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\entity_tbls.lua") -- more broken bullshit
-dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\nigger_keys.lua")
+dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\entity_tbls.lua")
+dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\keys.lua")
 dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\json.lua")
 dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\nativedb.lua")
 dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\globals.lua")
-dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\functions.lua") -- fix bullshit
---dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\globals.lua")
---dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\entity_tbls.lua")
---dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\nigger_keys.lua")
---dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\json.lua")
+dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\functions.lua")
 dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!all_players_options.lua")
 dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!all_players_options_functions.lua")
 dofile(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!self_options_functions.lua")
@@ -66,7 +58,6 @@ function dbg_text_thing_test()
     dbg_text_func("SYSTEM.TIMERB(): " .. SYSTEM.TIMERB())
     dbg_text_func("sub storeage: " .. menu_storage[#menu_storage])
     dbg_text_func("_g.should_loop_all_vehicle_spawn_options: " .. tostring(_g.should_loop_all_vehicle_spawn_options))
-    dbg_text_func("is_vk_key_pressed(vk_numpad['NUMPAD2']): " .. tostring(faggot))
 
 
 end
@@ -90,7 +81,6 @@ function main_menu_space()
     add_submenu_option("World", " ", submenus.main_menu, submenus.world_main_menu)
     add_submenu_option("Spawner", " ", submenus.main_menu, submenus.spawner_menu)
     add_submenu_option("Settings", " ", submenus.main_menu, submenus.settings_main_menu)
-    add_click_option("JOIN THE DISCORD: discord.gg/x2twG27xag", " ", submenus.main_menu, nil, false, function() end)
 
 
 end
@@ -143,8 +133,6 @@ function menu_main_entry()
     _ctrl.option_pressed_left = false
     _ctrl.option_pressed_right = false
     _ctrl.hot_key_pressed = false
-    --_g.test_nigger_bullshit = false
-    --hot_key_loops()
     menu_input_handler()
     fast_input()
     menu_sound_handler()
@@ -153,8 +141,8 @@ function menu_main_entry()
     end
     dbg.dbg_text_count = 0
 
-    local end_time_ns = SYSTEM.TIMERA()--Time.GetEpocheNs() -- fix this shit
-    local end_time_ms = Time.GetEpocheMs() -- and this shit
+    local end_time_ns = SYSTEM.TIMERA()
+    local end_time_ms = Time.GetEpocheMs() 
 
     _menu.frame_time_ms = (end_time_ms - start_time_ms)
     _menu.frame_time_ns = (SYSTEM.TIMESTEP()) * (100)--(end_time_ns - start_time_ns)
@@ -182,10 +170,7 @@ function tooltip_bullshit()
 
 end
 
---[[
-local space_main_ = FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\space_main.lua"
-dofile(space_main_)
-]]
+
 
 Script.QueueJob(function() tooltip_bullshit() end, nil)
 
