@@ -297,24 +297,17 @@ end
 ]]
 
 function back_out_of_submenu()
-    -- Remove the last menu from storage  | chat gpt auto comment because this originally used pluto to add and remove tables when i found it in the docs. yes i didnt know how to do the same thing in lua go ahead prizuhm screen shot this before i make this paid and the lua is ecrypted
     table.remove(menu_storage)
 
-    -- Restore the previous menu option count  | chat gpt auto comment because this originally used pluto to add and remove tables when i found it in the docs. yes i didnt know how to do the same thing in lua go ahead prizuhm screen shot this before i make this paid and the lua is ecrypted
     _menu.m_current_option = menu_option_count_storage[#menu_option_count_storage]
     table.remove(menu_option_count_storage)
 end
 
 function push_menu(menu_to_push)
-    -- Store the current menu option count  | chat gpt auto comment because this originally used pluto to add and remove tables when i found it in the docs. yes i didnt know how to do the same thing in lua go ahead prizuhm screen shot this before i make this paid and the lua is ecrypted
     table.insert(menu_option_count_storage, _menu.m_current_option)
 
-    -- Push the new menu to storage  | chat gpt auto comment because this originally used pluto to add and remove tables when i found it in the docs. yes i didnt know how to do the same thing in lua go ahead prizuhm screen shot this before i make this paid and the lua is ecrypted
     table.insert(menu_storage, menu_to_push)
 
-    -- Reset menu options | chat gpt auto comment because this originally used pluto to add and remove tables when i found it in the docs. yes i didnt know how to do the same thing in lua go ahead prizuhm screen shot this before i make this paid and the lua is ecrypted
-    --_menu.m_max_options = 13 way to late to make this a arg but i should have, my ass is not fixing that shit to work with every submenu i have made a option for
-    --_menu.m_option_count = 0 -- literally resets every frame idk why i have this hear right after the menu is pushed a frame will have already passed worse case it looks fucked for one frame
     _menu.m_current_option = 1
 end
 
@@ -750,7 +743,6 @@ function add_keyboard_option(option_text, info_text, sub_menu, output, length) -
         draw_option_text(option_text)
         draw_menu_background()
     
-        --local on_screen_keyboard_bool = false -- this made me wanna kms
         if (_menu.m_current_option == _menu.m_option_count) then
             if (_ctrl.option_press_click) then
                 MISC.DISPLAY_ONSCREEN_KEYBOARD(true, "FMMC_MPM_NA", "", "", "", "", "", length)
@@ -839,7 +831,7 @@ function is_ctrl_combo_pressed(ctrl_1, ctrl_2)
     end
 end
 
-function fast_input() -- this shit is so fucked
+function fast_input()
 
     if _menu.menu_is_menu_open then
 
@@ -1173,14 +1165,7 @@ function menu_input_handler()
         PAD.DISABLE_CONTROL_ACTION(2, input_disabled_control.INPUT_SELECT_WEAPON, true)
 
 
-        --saw this in something val made and had to use it. was looking at his github trying to see about where he is knowledge wise
-        --HUD.DISPLAY_HUD_WHEN_PAUSED_THIS_FRAME()
-		--Allows us to draw in the pause menu
-		--GRAPHICS.FORCE_RENDER_IN_GAME_UI(false)
-		--Allows us to draw above the pause menu
-		--GRAPHICS.SET_SCRIPT_GFX_DRAW_ORDER(8)
-		--Allows rendering of paused elements
-		--GRAPHICS.TOGGLE_PAUSED_RENDERPHASES(false)
+
 
 
         if PAD.IS_CONTROL_JUST_PRESSED(0, input_control["INPUT_FRONTEND_RDOWN - ENTER - A"]) or is_vk_key_just_pressed(vk_numpad["NUMPAD5"]) then -- sel VK_NUMPAD5
@@ -1263,7 +1248,6 @@ function menu_sound_handler()
 end
 
 
--- i dont even remember why this looks so fucked
 function read_file(filename)
     local file = io.open(filename, "r")
     if file then
@@ -1495,9 +1479,8 @@ function open_tooltip_helper(string_)
         
 end
 local opentooltip_count_01_01 = 0
-function open_tooltip_func() -- this is fucked ik
+function open_tooltip_func()
 
-    --local start_time = Time.GetEpocheMs() -- fuck this shit. like honestly the amount of time i have wasted trying to use this only to find out its broken WHAT??????
 
     if opentooltip_count_01_01 == 0 then
         opentooltip_count_01_01 = 1
@@ -1687,7 +1670,7 @@ player = {
         return return_value
 
     end
-     -- edit: read this shit its kinda funny | fucking add read and free or some shit your api makes me wanna kill my self you dont even have to free memory with stand i could get this working but i dont want it returning 2 fucking things : edit found the solution this is why i dont stay awake for more then 6 hours i start to not be able to function
+     
 
 }
 
@@ -1888,7 +1871,7 @@ function spawn_vehicle_for_vehicle_spawner(_hash)
         local coords_ = ENTITY.GET_ENTITY_COORDS(veh_, false)
         helper_request_ptfx("proj_indep_firework_v2")
         GRAPHICS.USE_PARTICLE_FX_ASSET("proj_indep_firework_v2")
-        local ptfx_ = GRAPHICS.START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY("scr_firework_indep_repeat_burst_rwb", veh_, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, false, false, false, 1.0, 1.0, 1.0, 0--[[this needs to be false but cherax has it as a fucking int or float or something 0 in C++ is false]])
+        local ptfx_ = GRAPHICS.START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY("scr_firework_indep_repeat_burst_rwb", veh_, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, false, false, false, 1.0, 1.0, 1.0, 0--[[this is a bool in game]])
         --GRAPHICS.START_NETWORKED_PARTICLE_FX_LOOPED_ON_ENTITY("scr_firework_indep_repeat_burst_rwb", veh_, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, false, false, false, 255, 255, 255, false)
 
         wait_t(0)
@@ -1961,7 +1944,6 @@ end
 
 function get_net_id_from_handle(ent)
 
-    --wondering why its done like this? because it originally used cases and lua does not fucking have them
 
     local ent_type = ENTITY.GET_ENTITY_TYPE(ent)
 
@@ -1994,11 +1976,3 @@ function unrigster_enity_from_handle(ent)
     --CPhysical_ = CPhysical.FromAddress(ent)
     --Memory.LuaCallCFunction(sigs.UNRIGSTER_ENTITY, CPhysical_, true)
 end
-
---[[
-function bool_flip(b00l_)
-    _menu.loading_sprite = true
-    wait_t(0)
-    _menu.loading_sprite = false
-    return not b00l_
-end]] -- trying to fix some unwanted toggle behavior
