@@ -25,7 +25,7 @@
 
 -----------------------------------------try doing:--------------------------------------
 
-try attaching an entity to someones camera (really dont think this will work infact im 99% sure they way im thinking of doing it will look weird as fuck)
+try attaching an entity to someones camera (really dont think this will work infact im 99% sure )
 
 
 
