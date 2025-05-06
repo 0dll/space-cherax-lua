@@ -251,7 +251,7 @@ function add_hot_key()
     if key ~= 0 then
         return key
     else
-        return _g.null_hotkey -- i ant even know what the fuck i was on when i made this
+        return _g.null_hotkey 
     end
 end
 
@@ -807,10 +807,10 @@ function add_color_option(option_text, info_text, sub_menu, hop_into_submenu, ra
         if _menu.m_option_count == 1 and _ctrl.option_press_click then
             rainbow_bool = not rainbow_bool
         end
-        key_, red = add_editor_option("red", " ", hop_into_submenu, nil, false, red, min, max, mod, function() end) -- trying flooring this it might fuck up idk
-        key_, green = add_editor_option("green", " ", hop_into_submenu, nil, false, green, min, max, mod, function() end) -- trying flooring this it might fuck up idk
-        key_, blue = add_editor_option("blue", " ", hop_into_submenu, nil, false, blue, min, max, mod, function() end) -- trying flooring this it might fuck up idk
-        key_, alpha = add_editor_option("alpha", " ", hop_into_submenu, nil, false, alpha, min, max, mod, function() end) -- trying flooring this it might fuck up idk
+        key_, red = add_editor_option("red", " ", hop_into_submenu, nil, false, red, min, max, mod, function() end) 
+        key_, green = add_editor_option("green", " ", hop_into_submenu, nil, false, green, min, max, mod, function() end) 
+        key_, blue = add_editor_option("blue", " ", hop_into_submenu, nil, false, blue, min, max, mod, function() end) 
+        key_, alpha = add_editor_option("alpha", " ", hop_into_submenu, nil, false, alpha, min, max, mod, function() end) 
     end
 
     if rainbow_bool then
@@ -1270,87 +1270,13 @@ function write_file(filename, content)
         return false, "Failed to open file for writing: " .. filename
     end
 end
---[[
-function read_entire_lua()
 
-
-
-    read_content_table = {
-        entity_tbls_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\entity_tbls.lua"), -- more broken bullshit
-        input_bullshit_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\nigger_keys.lua"),
-        json_shit_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\json.lua"),
-        natives_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\nativedb.lua"),
-        globals_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\globals.lua"), -- fix bullshit
-        functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\functions.lua"),
-        --globals_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\globals.lua"),
-        --entity_tbls_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\entity_tbls.lua"),
-        --input_bullshit_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\nigger_keys.lua"),
-        --json_shit_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\json.lua"),
-        all_players_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!all_players_options.lua"),
-        all_players_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!all_players_options_functions.lua"),
-        network_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!network_options.lua"),
-        network_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!network_options_functions.lua"),
-        players_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!players_options.lua"),
-        players_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!players_options_functions.lua"),
-        self_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!self_options_functions.lua"),
-        self_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!self_options.lua"),
-        setting_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!setting_options.lua"),
-        setting_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!setting_options_functions.lua"),
-        vehicle_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!vehicle_options.lua"),
-        vehicle_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!vehicle_options_functions.lua"),
-        weapon_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!weapon_options.lua"),
-        weapon_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!weapon_options_functions.lua"),
-        misc_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!misc_options.lua"),
-        misc_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!misc_options_functions.lua"),
-        world_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!world_options.lua"),
-        world_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!world_options_functions.lua"),
-        spawner_options_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!spawner_options.lua"),
-        spawner_options_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\!spawner_options_functions.lua"),
-        config_stuff_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\config_stuff.lua"),
-        sigs_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\sigs.lua"),
-        game_functions_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\game_functions.lua"),
-
-
-        space_main_end_only_t = read_file(FileMgr.GetMenuRootPath() .. "\\Lua\\space.lua"),
-
-
-    }
-
-    return read_content_table
-end
-
-function pack_entire_lua()
-
-    local path_ = FileMgr.GetMenuRootPath() .. "\\Lua\\packed_lua\\space_menu.lua"
-
-    content_ = read_entire_lua()
-
-    local file = io.open(path_, "w")
-    if file then
-
-        for _, content in pairs(content_) do
-            file:write(content)
-            file:write("\n")
-            file:write("\n")
-            file:write("\n")
-            file:write("\n")
-            file:write("\n")
-            file:write("\n")
-            wait_t(5000)
-        end
-
-        file:close()
-    end
-
-end
-
-]]
 
 function read_entire_lua()
     local rootPath = FileMgr.GetMenuRootPath() .. "\\Lua\\space_lib\\"
     local read_content_table = {
         {name = "entity_tbls_t", content = read_file(rootPath .. "entity_tbls.lua")},
-        {name = "input_bullshit_t", content = read_file(rootPath .. "nigger_keys.lua")},
+        {name = "input_bullshit_t", content = read_file(rootPath .. "keys.lua")},
         {name = "json_shit_t", content = read_file(rootPath .. "json.lua")},
         {name = "natives_t", content = read_file(rootPath .. "nativedb.lua")},
         {name = "globals_t", content = read_file(rootPath .. "globals.lua")},
